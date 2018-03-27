@@ -57,10 +57,21 @@ void listOuput(intNodeList list) {
     }
     cout << endl;
 }
+
+void addEnd(intNodeList &list, intNode *node) {
+    if (list.start == NULL) {
+        list.start = list.end = node;
+    }
+    else {
+    list.end->next = node;
+    node = list.end;
+    }
+}
 int main(int argc, char const *argv[])
 {
     intNodeList list;
     listInput(list);
+    addEnd(list, getNode(10));
     listOuput(list);
     return 0;
 }
